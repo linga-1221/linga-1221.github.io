@@ -1,659 +1,665 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuchivaripalli Nagalinga | Software Engineer</title>
+<meta name="description" content="Software Engineer building scalable backend systems, AI-powered applications, automation workflows, APIs, and production-ready engineering solutions.">
+<meta name="author" content="Kuchivaripalli Nagalinga">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0a0a0a;
+    --bg2:       #111111;
+    --bg3:       #1a1a1a;
+    --amber:     #EF9F27;
+    --amber-dim: #BA7517;
+    --amber-glow:rgba(239,159,39,0.12);
+    --white:     #f0ede8;
+    --muted:     #888880;
+    --border:    rgba(255,255,255,0.07);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-  <title>Kuchivaripalli Nagalinga | Software Engineer</title>
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(10,10,10,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--amber); letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--amber); }
 
-  <meta
-    name="description"
-    content="Software Engineer building scalable backend systems, AI-powered applications, automation workflows, APIs, and production-ready engineering solutions."
-  />
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 5vw 4rem;
+    position: relative; overflow: hidden;
+    max-width: 1200px; margin: auto;
+  }
+  .hero-bg-grid {
+    position: fixed; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(239,159,39,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239,159,39,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-orb {
+    position: absolute; top: 15%; right: -8%;
+    width: 550px; height: 550px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(239,159,39,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 920px; }
+  .hero-eyebrow {
+    font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::after {
+    content: ''; display: block; width: 60px; height: 1px;
+    background: var(--amber); opacity: 0.6;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; color: var(--white);
+  }
+  .hero-name em { font-style: italic; color: var(--amber); }
+  .hero-title {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--muted); font-weight: 300;
+    max-width: 620px; line-height: 1.85;
+  }
+  .hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .btn {
+    padding: 0.75rem 2rem; border-radius: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s; display: inline-block;
+  }
+  .btn-primary { background: var(--amber); color: #0a0a0a; border: 1px solid var(--amber); font-weight: 600; }
+  .btn-primary:hover { background: transparent; color: var(--amber); }
+  .btn-ghost { background: transparent; color: var(--white); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 600; color: var(--amber); line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 0.3rem; }
 
-  <meta
-    name="keywords"
-    content="Software Engineer, Backend Engineer, AI Engineer, DevOps, Machine Learning, NLP, FastAPI, Docker, Python, Portfolio"
-  />
+  /* ── SECTION COMMONS ── */
+  section { padding: 6rem 5vw; }
+  .container { max-width: 1200px; margin: auto; }
+  .section-header { margin-bottom: 4rem; }
+  .section-tag { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; display: block; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; line-height: 1.1; color: var(--white);
+  }
+  .section-line { width: 60px; height: 2px; background: var(--amber); margin-top: 1.5rem; }
 
-  <meta name="author" content="Kuchivaripalli Nagalinga"/>
+  /* ── ABOUT ── */
+  #about { background: var(--bg2); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.05rem; }
+  .about-text p strong { color: var(--white); font-weight: 500; }
+  .info-card {
+    border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1rem;
+    background: var(--bg3); position: relative; overflow: hidden; transition: border-color 0.3s;
+  }
+  .info-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--amber);
+  }
+  .info-card:hover { border-color: rgba(239,159,39,0.3); }
+  .info-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); margin-bottom: 0.4rem; }
+  .info-card-value { font-size: 0.95rem; color: var(--white); font-weight: 400; }
+  .info-card-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  /* ── SKILLS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .skill-category {
+    border: 1px solid var(--border); padding: 2rem; background: var(--bg2);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .skill-category:hover { border-color: rgba(239,159,39,0.3); transform: translateY(-4px); }
+  .skill-cat-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); margin-bottom: 1.2rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    font-size: 0.8rem; padding: 0.3rem 0.8rem;
+    border: 1px solid var(--border); color: var(--muted); transition: all 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-glow); }
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg2); }
+  .projects-list { display: flex; flex-direction: column; gap: 2px; }
+  .project-card {
+    display: grid; grid-template-columns: 80px 1fr auto;
+    align-items: start; gap: 2rem; padding: 2rem;
+    background: var(--bg3); border: 1px solid var(--border);
+    transition: border-color 0.3s, background 0.3s; cursor: default;
+  }
+  .project-card:hover { border-color: rgba(239,159,39,0.4); background: rgba(239,159,39,0.03); }
+  .project-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--border); line-height: 1; user-select: none;
+  }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
+  }
+  .project-card:hover .project-title { color: var(--amber); transition: color 0.3s; }
+  .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+  .project-tag { font-size: 0.7rem; padding: 0.2rem 0.6rem; background: var(--amber-glow); color: var(--amber); letter-spacing: 0.05em; }
+  .project-badge-col { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; flex-shrink: 0; padding-top: 0.25rem; }
+  .badge-ieee {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); border: 1px solid var(--amber-dim); padding: 0.3rem 0.7rem; white-space: nowrap;
+  }
+  .badge-link {
+    font-size: 0.75rem; color: var(--muted); text-decoration: none; white-space: nowrap;
+    transition: color 0.25s;
+  }
+  .badge-link:hover { color: var(--amber); }
 
-  <style>
+  /* ── ACHIEVEMENTS ── */
+  .achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+  .achievement-card {
+    padding: 2rem; border: 1px solid var(--border); background: var(--bg2);
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .achievement-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+  .achievement-card:hover::after { transform: scaleX(1); }
+  .achievement-card:hover { border-color: rgba(239,159,39,0.3); }
+  .ach-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+  .ach-title { font-weight: 500; font-size: 1rem; color: var(--white); margin-bottom: 0.4rem; }
+  .ach-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+  /* ── CONTACT ── */
+  #contact { background: var(--bg2); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300; color: var(--white); line-height: 1.3; margin-bottom: 1.5rem;
+  }
+  .contact-tagline em { color: var(--amber); font-style: italic; }
+  .contact-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.85; }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 0; border-bottom: 1px solid var(--border);
+    text-decoration: none; color: var(--muted); transition: color 0.3s; font-size: 0.95rem;
+  }
+  .contact-link:first-child { border-top: 1px solid var(--border); }
+  .contact-link:hover { color: var(--amber); }
+  .contact-link-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--amber); margin-bottom: 0.2rem; }
+  .contact-link-value { font-weight: 400; color: var(--white); font-size: 0.88rem; }
+  .contact-link-arrow { transition: transform 0.3s; }
+  .contact-link:hover .contact-link-arrow { transform: translateX(4px); }
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0b1120;
-      color:#ffffff;
-      line-height:1.7;
-    }
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 5vw; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78rem; color: var(--muted);
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--amber); }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.8s ease 0.1s  both; }
+  .hero-name    { animation: fadeUp 0.8s ease 0.25s both; }
+  .hero-title   { animation: fadeUp 0.8s ease 0.4s  both; }
+  .hero-cta     { animation: fadeUp 0.8s ease 0.55s both; }
+  .hero-stats   { animation: fadeUp 0.8s ease 0.7s  both; }
 
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    /* NAVBAR */
-
-    nav{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(11,17,32,0.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-content{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:1.2rem 0;
-    }
-
-    .logo{
-      font-size:1.4rem;
-      font-weight:700;
-      color:#38bdf8;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:2rem;
-    }
-
-    .nav-links a{
-      color:#cbd5e1;
-      transition:0.3s;
-      font-weight:500;
-    }
-
-    .nav-links a:hover{
-      color:#38bdf8;
-    }
-
-    /* HERO */
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      padding:5rem 0;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:4rem;
-      align-items:center;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:0.6rem 1rem;
-      border-radius:999px;
-      background:rgba(56,189,248,0.12);
-      border:1px solid rgba(56,189,248,0.2);
-      color:#38bdf8;
-      margin-bottom:2rem;
-      font-size:0.95rem;
-      font-weight:500;
-    }
-
-    .hero h1{
-      font-size:4.2rem;
-      line-height:1.1;
-      font-weight:800;
-      margin-bottom:1.5rem;
-    }
-
-    .highlight{
-      color:#38bdf8;
-    }
-
-    .hero p{
-      color:#94a3b8;
-      font-size:1.1rem;
-      margin-bottom:2rem;
-      max-width:650px;
-    }
-
-    .buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:1rem;
-    }
-
-    .btn{
-      padding:0.9rem 1.6rem;
-      border-radius:12px;
-      font-weight:600;
-      transition:0.3s;
-      display:inline-block;
-    }
-
-    .btn-primary{
-      background:#38bdf8;
-      color:#0b1120;
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-4px);
-    }
-
-    .btn-outline{
-      border:1px solid rgba(255,255,255,0.15);
-      color:#e2e8f0;
-    }
-
-    .btn-outline:hover{
-      border-color:#38bdf8;
-      color:#38bdf8;
-    }
-
-    /* CARDS */
-
-    .card{
-      background:#111827;
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
-      padding:2rem;
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-      border-color:#38bdf8;
-    }
-
-    .card h3{
-      color:#38bdf8;
-      margin-bottom:1rem;
-    }
-
-    .card p{
-      color:#94a3b8;
-    }
-
-    /* SECTION */
-
-    section{
-      padding:6rem 0;
-    }
-
-    .section-title{
-      font-size:2.4rem;
-      font-weight:800;
-      margin-bottom:3rem;
-    }
-
-    .section-title span{
-      color:#38bdf8;
-    }
-
-    /* GRID */
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:1.5rem;
-    }
-
-    /* TAGS */
-
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.6rem;
-      margin-top:1.2rem;
-    }
-
-    .tag{
-      background:rgba(56,189,248,0.12);
-      color:#38bdf8;
-      padding:0.45rem 0.9rem;
-      border-radius:999px;
-      font-size:0.82rem;
-    }
-
-    /* PROJECT LINKS */
-
-    .project-links{
-      display:flex;
-      gap:1rem;
-      margin-top:1.4rem;
-    }
-
-    .project-links a{
-      color:#38bdf8;
-      font-weight:600;
-    }
-
-    /* ABOUT */
-
-    .about-text{
-      max-width:850px;
-      color:#94a3b8;
-      font-size:1.05rem;
-    }
-
-    /* CONTACT */
-
-    .contact-card{
-      text-align:center;
-      background:linear-gradient(
-        135deg,
-        rgba(56,189,248,0.12),
-        rgba(59,130,246,0.08)
-      );
-    }
-
-    footer{
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding:2rem 0;
-      text-align:center;
-      color:#64748b;
-    }
-
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:2.9rem;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-      .buttons{
-        flex-direction:column;
-      }
-
-      .btn{
-        width:100%;
-        text-align:center;
-      }
-
-    }
-
-  </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 700px) {
+    .project-card { grid-template-columns: 1fr; gap: 1rem; }
+    .project-num { font-size: 2rem; }
+    .project-badge-col { align-items: flex-start; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .nav-links { display: none; }
+  }
+</style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<div class="hero-bg-grid"></div>
 
+<!-- NAV -->
 <nav>
-
-  <div class="container nav-content">
-
-    <div class="logo">
-      Nagalinga
-    </div>
-
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-  </div>
-
+  <span class="nav-logo">N.K.</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-
-<section class="hero">
-
-  <div class="container hero-grid">
-
-    <div>
-
-      <div class="badge">
-        Software Engineering • Backend Systems • Intelligent Applications
-      </div>
-
-      <h1>
-        Software
-        <span class="highlight">Engineer</span>
-      </h1>
-
-      <p>
-        Building scalable backend systems, AI-powered applications,
-        automation workflows, APIs, and production-ready engineering
-        solutions using modern software engineering practices.
-      </p>
-
-      <div class="buttons">
-
-        <a href="#projects" class="btn btn-primary">
-          View Projects
-        </a>
-
-        <a
-          href="https://github.com/linga-1221"
-          target="_blank"
-          class="btn btn-outline"
-        >
-          GitHub
-        </a>
-
-        <a
-          href="https://linkedin.com/in/nagalinga-k"
-          target="_blank"
-          class="btn btn-outline"
-        >
-          LinkedIn
-        </a>
-
-      </div>
-
+<section id="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Available for opportunities</p>
+    <h1 class="hero-name">
+      Kuchivaripalli<br><em>Nagalinga</em>
+    </h1>
+    <p class="hero-title">
+      Software Engineer building scalable backend systems, AI-powered applications,
+      automation workflows, APIs, and production-ready engineering solutions
+      using modern software engineering practices.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="https://github.com/linga-1221" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      <a href="https://linkedin.com/in/nagalinga-k" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
-
-    <div class="card">
-
-      <h3>Core Expertise</h3>
-
-      <p>
-        • Backend Systems & APIs<br>
-        • Software Engineering<br>
-        • Docker & CI/CD<br>
-        • FastAPI & Python<br>
-        • Intelligent Applications<br>
-        • Machine Learning & NLP<br>
-        • Deployment Pipelines<br>
-        • Debugging & Automation
-      </p>
-
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1st</div>
+        <div class="stat-label">KARE OSS Hackathon</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">IEEE</div>
+        <div class="stat-label">Research Published</div>
+      </div>
     </div>
-
   </div>
-
 </section>
 
 <!-- ABOUT -->
-
 <section id="about">
-
   <div class="container">
-
-    <h2 class="section-title">
-      About <span>Me</span>
-    </h2>
-
-    <p class="about-text">
-      I’m a Software Engineer focused on scalable systems,
-      backend infrastructure, intelligent applications,
-      automation workflows, and production-ready engineering.
-      <br><br>
-
-      My work spans backend development, AI-powered systems,
-      deployment workflows, APIs, machine learning pipelines,
-      and modern software engineering practices.
-      <br><br>
-
-      I enjoy solving real-world engineering problems involving
-      scalable architectures, workflow optimization, debugging,
-      intelligent automation, and end-to-end system development.
-    </p>
-
+    <div class="section-header">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title">Passionate about building<br>things that think.</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a <strong>Software Engineer</strong> focused on scalable systems, backend infrastructure,
+          intelligent applications, automation workflows, and production-ready engineering.
+          Currently in my final year of <strong>B.Tech Computer Science & Engineering</strong>
+          at Kalasalingam Academy of Research and Education.
+        </p>
+        <p>
+          My work spans backend development, AI-powered systems, deployment workflows, APIs,
+          machine learning pipelines, and modern software engineering practices.
+          My flagship project <strong>Skill Ladder</strong> — an AI-driven career recommendation
+          platform — earned me an <strong>IEEE publication</strong> and a <strong>1st-place finish</strong>
+          at the KARE Open Source Hackathon among 200+ teams.
+        </p>
+        <p>
+          I enjoy solving real-world engineering problems involving <strong>scalable architectures</strong>,
+          workflow optimisation, debugging, intelligent automation, and end-to-end system development.
+          Actively seeking Software Engineering, AI/ML, and Backend roles across India.
+        </p>
+      </div>
+      <div class="about-info">
+        <div class="info-card">
+          <div class="info-card-label">Education</div>
+          <div class="info-card-value">B.Tech — Computer Science & Engineering</div>
+          <div class="info-card-sub">Kalasalingam Academy of Research and Education · 2022–2026 · CGPA 7.67</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Intermediate (12th)</div>
+          <div class="info-card-value">Resonance Junior College, Vijayawada</div>
+          <div class="info-card-sub">Andhra Pradesh · 2020–2022</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Location</div>
+          <div class="info-card-value">Tadipatri, Andhra Pradesh, India</div>
+          <div class="info-card-sub">Open to remote & relocation</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Status</div>
+          <div class="info-card-value">Actively Job Hunting</div>
+          <div class="info-card-sub">SWE · AI/ML · Backend · Full-Stack · Internships</div>
+        </div>
+      </div>
+    </div>
   </div>
-
 </section>
 
 <!-- SKILLS -->
-
 <section id="skills">
-
   <div class="container">
-
-    <h2 class="section-title">
-      Technical <span>Skills</span>
-    </h2>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>Backend & Infrastructure</h3>
-
-        <p>
-          FastAPI, Flask, REST APIs, Docker,
-          GitHub Actions, CI/CD, Linux,
-          MongoDB, PostgreSQL, MySQL,
-          Monitoring, Logging, Automation Workflows
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>AI, ML & Intelligent Systems</h3>
-
-        <p>
-          LLMs, NLP, LangChain, RAG,
-          Semantic Search, Embeddings,
-          Prompt Engineering, Machine Learning,
-          AI Evaluation Pipelines
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>Software Engineering</h3>
-
-        <p>
-          Python, Java, SQL, Debugging,
-          Deployment Pipelines, Validation Workflows,
-          Backend Systems, Workflow Optimization,
-          Scalable Application Development
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>Frontend</h3>
-
-        <p>
-          React.js, JavaScript,
-          HTML, CSS, Tailwind CSS
-        </p>
-
-      </div>
-
+    <div class="section-header">
+      <span class="section-tag">Technical Arsenal</span>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="section-line"></div>
     </div>
-
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-cat-title">Backend & Infrastructure</div>
+        <div class="skill-tags">
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Monitoring</span>
+          <span class="skill-tag">Automation</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">AI, ML & Intelligent Systems</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Semantic Search</span>
+          <span class="skill-tag">Embeddings</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">spaCy</span>
+          <span class="skill-tag">scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Software Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Debugging</span>
+          <span class="skill-tag">Deployment Pipelines</span>
+          <span class="skill-tag">System Design</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Databases & Storage</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">Supabase</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Certifications</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AI for Data Analytics</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Infosys Springboard</span>
+        </div>
+      </div>
+    </div>
   </div>
-
 </section>
 
 <!-- PROJECTS -->
-
 <section id="projects">
-
   <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Work</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-list">
 
-    <h2 class="section-title">
-      Featured <span>Projects</span>
-    </h2>
-
-    <div class="grid">
-
-      <!-- PROJECT 1 -->
-
-      <div class="card">
-
-        <h3>Agent Eval Lab</h3>
-
-        <p>
-          Multi-agent evaluation framework for benchmarking
-          LLM-generated outputs using automated regression testing,
-          structured validation workflows, debugging systems,
-          and CI/CD pipelines.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Docker</span>
-          <span class="tag">CI/CD</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Python</span>
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <div>
+          <div class="project-title">Skill Ladder</div>
+          <div class="project-desc">
+            AI-powered career recommendation platform using FastAPI, LangChain, semantic retrieval,
+            backend APIs, deployment workflows, and intelligent automation systems.
+            Full-stack: React + Tailwind frontend, FastAPI backend,
+            Firebase / Supabase / MySQL / MongoDB storage layer.
+            Research published in IEEE.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">FastAPI</span>
+            <span class="project-tag">LangChain</span>
+            <span class="project-tag">MongoDB</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">RAG</span>
+            <span class="project-tag">NLP</span>
+            <span class="project-tag">scikit-learn</span>
+          </div>
         </div>
-
-        <div class="project-links">
-          <a href="https://github.com/linga-1221" target="_blank">
-            GitHub →
-          </a>
+        <div class="project-badge-col">
+          <span class="badge-ieee">IEEE Published</span>
+          <a href="https://github.com/linga-1221" target="_blank" class="badge-link">GitHub ↗</a>
         </div>
-
       </div>
 
-      <!-- PROJECT 2 -->
-
-      <div class="card">
-
-        <h3>Skill Ladder</h3>
-
-        <p>
-          AI-powered recommendation platform using FastAPI,
-          LangChain, semantic retrieval, backend APIs,
-          deployment workflows, and intelligent automation systems.
-        </p>
-
-        <div class="tags">
-          <span class="tag">FastAPI</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Docker</span>
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div>
+          <div class="project-title">Agent Eval Lab</div>
+          <div class="project-desc">
+            Multi-agent evaluation framework for benchmarking LLM-generated outputs using
+            automated regression testing, structured validation workflows, debugging systems,
+            and CI/CD pipelines. Enables systematic quality control of AI agent outputs at scale.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">CI/CD</span>
+            <span class="project-tag">FastAPI</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">LLMs</span>
+            <span class="project-tag">GitHub Actions</span>
+          </div>
         </div>
-
-        <div class="project-links">
-          <a href="https://github.com/linga-1221" target="_blank">
-            GitHub →
-          </a>
+        <div class="project-badge-col">
+          <a href="https://github.com/linga-1221" target="_blank" class="badge-link">GitHub ↗</a>
         </div>
-
       </div>
 
-      <!-- PROJECT 3 -->
-
-      <div class="card">
-
-        <h3>Automated Recruitment Using AI</h3>
-
-        <p>
-          NLP-driven recruitment workflow automating
-          candidate evaluation, preprocessing,
-          semantic parsing, structured validation,
-          and intelligent recommendation systems.
-        </p>
-
-        <div class="tags">
-          <span class="tag">NLP</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div>
+          <div class="project-title">Automated Recruitment Using AI</div>
+          <div class="project-desc">
+            NLP-driven recruitment workflow automating candidate evaluation, preprocessing,
+            semantic parsing, structured validation, and intelligent recommendation systems.
+            Reduces manual screening using spaCy NER and ML-based candidate matching pipelines.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">NLP</span>
+            <span class="project-tag">spaCy NER</span>
+            <span class="project-tag">scikit-learn</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Flask</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">MongoDB</span>
+          </div>
         </div>
-
-        <div class="project-links">
-          <a href="https://github.com/linga-1221" target="_blank">
-            GitHub →
-          </a>
+        <div class="project-badge-col">
+          <a href="https://github.com/linga-1221" target="_blank" class="badge-link">GitHub ↗</a>
         </div>
-
       </div>
 
-      <!-- PROJECT 4 -->
-
-      <div class="card">
-
-        <h3>Gesture Recognition System</h3>
-
-        <p>
-          Deep learning-based gesture recognition system
-          using CNN-powered computer vision workflows,
-          debugging pipelines, and automated validation systems.
-        </p>
-
-        <div class="tags">
-          <span class="tag">CNN</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">Deep Learning</span>
-          <span class="tag">Python</span>
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div>
+          <div class="project-title">Gesture Recognition System</div>
+          <div class="project-desc">
+            Deep learning-based gesture recognition system using CNN-powered computer vision
+            workflows, debugging pipelines, and automated validation systems.
+            Real-time classification using OpenCV and custom-trained convolutional neural networks.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">CNN</span>
+            <span class="project-tag">OpenCV</span>
+            <span class="project-tag">Deep Learning</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Computer Vision</span>
+          </div>
         </div>
-
-        <div class="project-links">
-          <a href="https://github.com/linga-1221" target="_blank">
-            GitHub →
-          </a>
+        <div class="project-badge-col">
+          <a href="https://github.com/linga-1221" target="_blank" class="badge-link">GitHub ↗</a>
         </div>
-
       </div>
 
     </div>
-
   </div>
+</section>
 
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Recognition</span>
+      <h2 class="section-title">Achievements & Certifications</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="achievements-grid">
+      <div class="achievement-card">
+        <span class="ach-icon">🏆</span>
+        <div class="ach-title">1st Place — KARE OSS Hackathon</div>
+        <div class="ach-desc">Won among 200+ competing teams. Built an open-source AI solution under time constraints.</div>
+      </div>
+      <div class="achievement-card">
+        <span class="ach-icon">📄</span>
+        <div class="ach-title">IEEE Research Publication</div>
+        <div class="ach-desc">Published research on AI-powered career recommendation systems, linked to the Skill Ladder project.</div>
+      </div>
+      <div class="achievement-card">
+        <span class="ach-icon">🎓</span>
+        <div class="ach-title">AI for Data Analytics — Infosys Springboard</div>
+        <div class="ach-desc">Certified in Artificial Intelligence and Data Analytics methodologies by Infosys Springboard.</div>
+      </div>
+      <div class="achievement-card">
+        <span class="ach-icon">📊</span>
+        <div class="ach-title">Power BI Certification</div>
+        <div class="ach-desc">Certified in Microsoft Power BI for data visualisation, business intelligence, and reporting dashboards.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
-
   <div class="container">
-
-    <div class="card contact-card">
-
-      <h2 class="section-title">
-        Let’s <span>Connect</span>
-      </h2>
-
-      <p>
-        Interested in software engineering,
-        backend systems, AI applications,
-        DevOps workflows, machine learning,
-        or scalable engineering solutions?
-        <br><br>
-
-        📧 nagakuchivaripalli@gmail.com
-        <br>
-        💻 github.com/linga-1221
-        <br>
-        🔗 linkedin.com/in/nagalinga-k
-      </p>
-
+    <div class="section-header">
+      <span class="section-tag">Let's Connect</span>
+      <h2 class="section-title">Open to Work</h2>
+      <div class="section-line"></div>
     </div>
-
+    <div class="contact-layout">
+      <div>
+        <p class="contact-tagline">
+          Looking for <em>opportunities</em> in software engineering,
+          AI/ML, and intelligent backend systems — across India.
+        </p>
+        <p class="contact-sub">
+          Interested in backend systems, AI applications, DevOps workflows,
+          machine learning, or scalable engineering solutions? Let's build something great.
+          Open to remote work and relocation.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:nagakuchivaripalli@gmail.com" class="contact-link">
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">nagakuchivaripalli@gmail.com</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://github.com/linga-1221" target="_blank" class="contact-link">
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">github.com/linga-1221</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/in/nagalinga-k" target="_blank" class="contact-link">
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/nagalinga-k</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <div>
+            <div class="contact-link-label">Location</div>
+            <div class="contact-link-value">Tadipatri, Andhra Pradesh — Open to Remote & Relocation</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-  © 2026 Kuchivaripalli Nagalinga • Software Engineer
+  <span class="footer-logo">N.K.</span>
+  <span>© 2026 Kuchivaripalli Nagalinga · Software Engineer · Andhra Pradesh, India</span>
 </footer>
 
 </body>
