@@ -1,327 +1,660 @@
-export default function Portfolio() {
-  const projects = [
-    {
-      title: "Agent Eval Lab",
-      description:
-        "LLM evaluation framework for benchmarking AI-generated outputs using automated regression testing, structured evaluation workflows, and CI/CD pipelines.",
-      stack: ["LLMs", "Docker", "CI/CD", "FastAPI", "Python"],
-    },
-    {
-      title: "Skill Ladder",
-      description:
-        "AI-powered career platform using LangChain, OpenAI APIs, semantic retrieval, and recommendation systems for resume analysis and career guidance.",
-      stack: ["LangChain", "RAG", "MongoDB", "FastAPI", "OpenAI"],
-    },
-    {
-      title: "Automated Recruitment Using AI",
-      description:
-        "NLP-driven recruitment system for candidate evaluation, semantic parsing, and bias detection using machine learning workflows.",
-      stack: ["NLP", "scikit-learn", "Python", "Machine Learning"],
-    },
-    {
-      title: "Gesture Recognition System",
-      description:
-        "Deep learning-based sign language interpretation system using CNN-powered computer vision workflows.",
-      stack: ["CNN", "OpenCV", "Deep Learning", "Python"],
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  const skills = {
-    "AI / NLP": [
-      "LLMs",
-      "GenAI",
-      "LangChain",
-      "RAG",
-      "Semantic Search",
-      "Embeddings",
-      "Prompt Engineering",
-      "NLP",
-    ],
-    "Machine Learning": [
-      "Python",
-      "scikit-learn",
-      "Deep Learning",
-      "CNN",
-      "Pandas",
-      "NumPy",
-      "Model Evaluation",
-    ],
-    "Backend & DevOps": [
-      "FastAPI",
-      "Flask",
-      "REST APIs",
-      "Docker",
-      "GitHub Actions",
-      "CI/CD",
-      "Linux",
-      "MongoDB",
-    ],
-    Frontend: ["React.js", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
-  };
+  <title>Kuchivaripalli Nagalinga | Software Engineer</title>
 
-  return (
-    <div className="min-h-screen bg-[#0B1120] text-white font-sans">
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 border-b border-white/10 backdrop-blur bg-[#0B1120]/90">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold tracking-wide text-cyan-400">
-            Nagalinga
-          </h1>
+  <meta
+    name="description"
+    content="Software Engineer building scalable backend systems, AI-powered applications, automation workflows, APIs, and production-ready engineering solutions."
+  />
 
-          <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
-            <a href="#about" className="hover:text-cyan-400 transition">
-              About
-            </a>
-            <a href="#skills" className="hover:text-cyan-400 transition">
-              Skills
-            </a>
-            <a href="#projects" className="hover:text-cyan-400 transition">
-              Projects
-            </a>
-            <a href="#contact" className="hover:text-cyan-400 transition">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+  <meta
+    name="keywords"
+    content="Software Engineer, Backend Engineer, AI Engineer, DevOps, Machine Learning, NLP, FastAPI, Docker, Python, Portfolio"
+  />
 
-      {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 text-sm mb-8">
-            AI Engineering • GenAI • Scalable Systems
-          </div>
+  <meta name="author" content="Kuchivaripalli Nagalinga"/>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
-            AI & Full Stack
-            <span className="block text-cyan-400">Engineer</span>
-          </h1>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 
-          <p className="mt-8 text-lg text-slate-400 leading-8 max-w-2xl">
-            Building GenAI systems, NLP pipelines, semantic retrieval workflows, scalable backend applications, and intelligent automation platforms using modern AI and software engineering practices.
-          </p>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 rounded-xl bg-cyan-400 text-black font-semibold hover:scale-105 transition"
-            >
-              View Projects
-            </a>
+  <style>
 
-            <a
-              href="https://github.com/linga-1221"
-              target="_blank"
-              className="px-6 py-3 rounded-xl border border-white/20 hover:border-cyan-400 hover:text-cyan-400 transition"
-            >
-              GitHub
-            </a>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
 
-            <a
-              href="https://linkedin.com/in/nagalinga-k"
-              target="_blank"
-              className="px-6 py-3 rounded-xl border border-white/20 hover:border-cyan-400 hover:text-cyan-400 transition"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </div>
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0b1120;
+      color:#ffffff;
+      line-height:1.7;
+    }
 
-        <div className="relative">
-          <div className="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full"></div>
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-          <div className="relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
-            <h2 className="text-2xl font-bold mb-6 text-cyan-400">
-              Core Expertise
-            </h2>
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
 
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              {[
-                "LLMs & GenAI",
-                "LangChain",
-                "RAG Pipelines",
-                "Semantic Search",
-                "NLP Workflows",
-                "FastAPI",
-                "Machine Learning",
-                "Docker & CI/CD",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-slate-300"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    /* NAVBAR */
 
-      {/* ABOUT */}
-      <section id="about" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold mb-4">About Me</h2>
-          <div className="w-24 h-1 bg-cyan-400 rounded-full"></div>
-        </div>
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(11,17,32,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-6 text-slate-400 leading-8 text-lg">
-            <p>
-              I’m an AI-focused Software Engineer specializing in NLP, GenAI systems, semantic retrieval, and scalable backend development. My work centers
-              around building practical AI applications that solve real-world
-              problems through automation, semantic retrieval, and intelligent
-              workflows.
-            </p>
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1.2rem 0;
+    }
 
-            <p>
-              I enjoy working on challenging engineering problems involving LLM
-              evaluation, AI agents, vector search, recommendation systems,
-              machine learning pipelines, and workflow automation.
-            </p>
+    .logo{
+      font-size:1.4rem;
+      font-weight:700;
+      color:#38bdf8;
+    }
 
-            <p>
-              My work focuses on building production-ready AI applications, evaluation pipelines, intelligent automation systems, and scalable engineering workflows using modern AI and backend technologies.
-            </p>
-          </div>
+    .nav-links{
+      display:flex;
+      gap:2rem;
+    }
 
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              ["20+", "Datasets Processed"],
-              ["10+", "AI/ML Projects"],
-              ["4+", "Production Deployments"],
-              ["100%", "Self-Driven Learning"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8"
-              >
-                <h3 className="text-4xl font-bold text-cyan-400">{value}</h3>
-                <p className="mt-3 text-slate-400">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .nav-links a{
+      color:#cbd5e1;
+      transition:0.3s;
+      font-weight:500;
+    }
 
-      {/* SKILLS */}
-      <section id="skills" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold mb-4">Technical Skills</h2>
-          <div className="w-24 h-1 bg-cyan-400 rounded-full"></div>
-        </div>
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {Object.entries(skills).map(([category, items]) => (
-            <div
-              key={category}
-              className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-cyan-400/50 transition"
-            >
-              <h3 className="text-2xl font-semibold text-cyan-400 mb-6">
-                {category}
-              </h3>
+    /* HERO */
 
-              <div className="flex flex-wrap gap-3">
-                {items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-200 text-sm"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:5rem 0;
+    }
 
-      {/* PROJECTS */}
-      <section id="projects" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-cyan-400 rounded-full"></div>
-        </div>
+    .hero-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:4rem;
+      align-items:center;
+    }
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="group bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-cyan-400/50 transition duration-300"
-            >
-              <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition">
-                {project.title}
-              </h3>
+    .badge{
+      display:inline-block;
+      padding:0.6rem 1rem;
+      border-radius:999px;
+      background:rgba(56,189,248,0.12);
+      border:1px solid rgba(56,189,248,0.2);
+      color:#38bdf8;
+      margin-bottom:2rem;
+      font-size:0.95rem;
+      font-weight:500;
+    }
 
-              <p className="text-slate-400 leading-7 mb-6">
-                {project.description}
-              </p>
+    .hero h1{
+      font-size:4.2rem;
+      line-height:1.1;
+      font-weight:800;
+      margin-bottom:1.5rem;
+    }
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-200 text-xs"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+    .highlight{
+      color:#38bdf8;
+    }
 
-              <div className="flex items-center gap-6 text-sm font-medium">
-                <a
-                  href="https://github.com/linga-1221"
-                  target="_blank"
-                  className="text-cyan-400 hover:underline"
-                >
-                  GitHub →
-                </a>
+    .hero p{
+      color:#94a3b8;
+      font-size:1.1rem;
+      margin-bottom:2rem;
+      max-width:650px;
+    }
 
-                <a href="#" className="text-slate-300 hover:text-cyan-400">
-                  Live Demo →
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+    }
 
-      {/* CONTACT */}
-      <section id="contact" className="max-w-5xl mx-auto px-6 py-24">
-        <div className="bg-gradient-to-br from-cyan-400/10 to-blue-500/10 border border-cyan-400/20 rounded-[2rem] p-12 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Let’s Build Something Great
-          </h2>
+    .btn{
+      padding:0.9rem 1.6rem;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
 
-          <p className="text-slate-400 text-lg leading-8 max-w-2xl mx-auto mb-10">
-            Interested in AI engineering, NLP systems, GenAI workflows, machine
-            learning, or scalable backend applications? I’m always open to
-            exciting opportunities and collaborations.
-          </p>
+    .btn-primary{
+      background:#38bdf8;
+      color:#0b1120;
+    }
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:nagakuchivaripalli@gmail.com"
-              className="px-6 py-3 rounded-xl bg-cyan-400 text-black font-semibold hover:scale-105 transition"
-            >
-              Contact Me
-            </a>
+    .btn-primary:hover{
+      transform:translateY(-4px);
+    }
 
-            <a
-              href="https://github.com/linga-1221"
-              target="_blank"
-              className="px-6 py-3 rounded-xl border border-white/20 hover:border-cyan-400 hover:text-cyan-400 transition"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </section>
+    .btn-outline{
+      border:1px solid rgba(255,255,255,0.15);
+      color:#e2e8f0;
+    }
 
-      {/* FOOTER */}
-      <footer className="border-t border-white/10 py-8 text-center text-slate-500 text-sm">
-        © 2026 Kuchivaripalli Nagalinga • AI-Focused Software Engineer
-      </footer>
+    .btn-outline:hover{
+      border-color:#38bdf8;
+      color:#38bdf8;
+    }
+
+    /* CARDS */
+
+    .card{
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:2rem;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#38bdf8;
+    }
+
+    .card h3{
+      color:#38bdf8;
+      margin-bottom:1rem;
+    }
+
+    .card p{
+      color:#94a3b8;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:6rem 0;
+    }
+
+    .section-title{
+      font-size:2.4rem;
+      font-weight:800;
+      margin-bottom:3rem;
+    }
+
+    .section-title span{
+      color:#38bdf8;
+    }
+
+    /* GRID */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+
+    /* TAGS */
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.6rem;
+      margin-top:1.2rem;
+    }
+
+    .tag{
+      background:rgba(56,189,248,0.12);
+      color:#38bdf8;
+      padding:0.45rem 0.9rem;
+      border-radius:999px;
+      font-size:0.82rem;
+    }
+
+    /* PROJECT LINKS */
+
+    .project-links{
+      display:flex;
+      gap:1rem;
+      margin-top:1.4rem;
+    }
+
+    .project-links a{
+      color:#38bdf8;
+      font-weight:600;
+    }
+
+    /* ABOUT */
+
+    .about-text{
+      max-width:850px;
+      color:#94a3b8;
+      font-size:1.05rem;
+    }
+
+    /* CONTACT */
+
+    .contact-card{
+      text-align:center;
+      background:linear-gradient(
+        135deg,
+        rgba(56,189,248,0.12),
+        rgba(59,130,246,0.08)
+      );
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:2rem 0;
+      text-align:center;
+      color:#64748b;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2.9rem;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="container nav-content">
+
+    <div class="logo">
+      Nagalinga
     </div>
-  );
-}
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="badge">
+        Software Engineering • Backend Systems • Intelligent Applications
+      </div>
+
+      <h1>
+        Software
+        <span class="highlight">Engineer</span>
+      </h1>
+
+      <p>
+        Building scalable backend systems, AI-powered applications,
+        automation workflows, APIs, and production-ready engineering
+        solutions using modern software engineering practices.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#projects" class="btn btn-primary">
+          View Projects
+        </a>
+
+        <a
+          href="https://github.com/linga-1221"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://linkedin.com/in/nagalinga-k"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Core Expertise</h3>
+
+      <p>
+        • Backend Systems & APIs<br>
+        • Software Engineering<br>
+        • Docker & CI/CD<br>
+        • FastAPI & Python<br>
+        • Intelligent Applications<br>
+        • Machine Learning & NLP<br>
+        • Deployment Pipelines<br>
+        • Debugging & Automation
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      About <span>Me</span>
+    </h2>
+
+    <p class="about-text">
+      I’m a Software Engineer focused on scalable systems,
+      backend infrastructure, intelligent applications,
+      automation workflows, and production-ready engineering.
+      <br><br>
+
+      My work spans backend development, AI-powered systems,
+      deployment workflows, APIs, machine learning pipelines,
+      and modern software engineering practices.
+      <br><br>
+
+      I enjoy solving real-world engineering problems involving
+      scalable architectures, workflow optimization, debugging,
+      intelligent automation, and end-to-end system development.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Technical <span>Skills</span>
+    </h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>Backend & Infrastructure</h3>
+
+        <p>
+          FastAPI, Flask, REST APIs, Docker,
+          GitHub Actions, CI/CD, Linux,
+          MongoDB, PostgreSQL, MySQL,
+          Monitoring, Logging, Automation Workflows
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>AI, ML & Intelligent Systems</h3>
+
+        <p>
+          LLMs, NLP, LangChain, RAG,
+          Semantic Search, Embeddings,
+          Prompt Engineering, Machine Learning,
+          AI Evaluation Pipelines
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Software Engineering</h3>
+
+        <p>
+          Python, Java, SQL, Debugging,
+          Deployment Pipelines, Validation Workflows,
+          Backend Systems, Workflow Optimization,
+          Scalable Application Development
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Frontend</h3>
+
+        <p>
+          React.js, JavaScript,
+          HTML, CSS, Tailwind CSS
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Featured <span>Projects</span>
+    </h2>
+
+    <div class="grid">
+
+      <!-- PROJECT 1 -->
+
+      <div class="card">
+
+        <h3>Agent Eval Lab</h3>
+
+        <p>
+          Multi-agent evaluation framework for benchmarking
+          LLM-generated outputs using automated regression testing,
+          structured validation workflows, debugging systems,
+          and CI/CD pipelines.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Python</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/linga-1221" target="_blank">
+            GitHub →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="card">
+
+        <h3>Skill Ladder</h3>
+
+        <p>
+          AI-powered recommendation platform using FastAPI,
+          LangChain, semantic retrieval, backend APIs,
+          deployment workflows, and intelligent automation systems.
+        </p>
+
+        <div class="tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Docker</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/linga-1221" target="_blank">
+            GitHub →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+
+      <div class="card">
+
+        <h3>Automated Recruitment Using AI</h3>
+
+        <p>
+          NLP-driven recruitment workflow automating
+          candidate evaluation, preprocessing,
+          semantic parsing, structured validation,
+          and intelligent recommendation systems.
+        </p>
+
+        <div class="tags">
+          <span class="tag">NLP</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/linga-1221" target="_blank">
+            GitHub →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- PROJECT 4 -->
+
+      <div class="card">
+
+        <h3>Gesture Recognition System</h3>
+
+        <p>
+          Deep learning-based gesture recognition system
+          using CNN-powered computer vision workflows,
+          debugging pipelines, and automated validation systems.
+        </p>
+
+        <div class="tags">
+          <span class="tag">CNN</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Python</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/linga-1221" target="_blank">
+            GitHub →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="card contact-card">
+
+      <h2 class="section-title">
+        Let’s <span>Connect</span>
+      </h2>
+
+      <p>
+        Interested in software engineering,
+        backend systems, AI applications,
+        DevOps workflows, machine learning,
+        or scalable engineering solutions?
+        <br><br>
+
+        📧 nagakuchivaripalli@gmail.com
+        <br>
+        💻 github.com/linga-1221
+        <br>
+        🔗 linkedin.com/in/nagalinga-k
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 Kuchivaripalli Nagalinga • Software Engineer
+</footer>
+
+</body>
+</html>
