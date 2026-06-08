@@ -8,7 +8,6 @@ items: [
 'Python',
 'SQL',
 'JavaScript',
-'Data Structures & Algorithms',
 ],
 },
 {
