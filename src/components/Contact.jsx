@@ -21,9 +21,9 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden" ref={ref}>
+    <section id="contact" className="py-32 relative overflow-hidden bg-cream dark:bg-navy transition-colors duration-300" ref={ref}>
       {/* Background block */}
-      <div className="absolute inset-y-0 right-0 w-1/2 bg-navy hidden lg:block" />
+      <div className="absolute inset-y-0 right-0 w-1/2 bg-navy dark:bg-charcoal hidden lg:block" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
         {/* Section header */}
@@ -32,7 +32,7 @@ export default function Contact() {
             <span className="text-xs font-semibold tracking-[0.3em] uppercase text-coral">Contact</span>
           </div>
           <div className="lg:col-span-8">
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy dark:text-cream leading-[0.9] tracking-tighter">
               Open to<br /><span className="text-coral italic">Work</span>
             </h2>
             <div className="w-24 h-1 bg-coral mt-8" />
@@ -43,21 +43,21 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left - Message */}
           <div className={`lg:col-span-5 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="font-display text-3xl lg:text-4xl text-navy leading-tight mb-6">
+            <p className="font-display text-3xl lg:text-4xl text-navy dark:text-cream leading-tight mb-6">
               Looking for <span className="text-coral italic">opportunities</span> in software engineering, AI/ML, and intelligent backend systems — across India.
             </p>
-            <p className="text-navy/60 leading-relaxed text-sm">
+            <p className="text-navy/60 dark:text-cream/60 leading-relaxed text-sm">
               Interested in backend systems, AI applications, DevOps workflows, machine learning, or scalable engineering solutions? Let's build something great. Open to remote work and relocation.
             </p>
-            <div className="mt-10 inline-flex items-center gap-3 border-2 border-navy px-6 py-4">
+            <div className="mt-10 inline-flex items-center gap-3 border-2 border-navy dark:border-cream/20 px-6 py-4">
               <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-xs font-semibold tracking-wider uppercase">Available for opportunities</span>
+              <span className="text-xs font-semibold tracking-wider uppercase text-navy dark:text-cream">Available for opportunities</span>
             </div>
           </div>
 
           {/* Right - Links */}
           <div className={`lg:col-span-6 lg:col-start-7 transition-all duration-700 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="lg:bg-navy lg:p-12">
+            <div className="lg:bg-navy lg:dark:bg-charcoal lg:p-12">
               {contactLinks.map((link, i) => (
                 <div
                   key={link.label}

@@ -37,7 +37,7 @@ export default function Achievements() {
   }, [])
 
   return (
-    <section id="achievements" className="py-32 bg-white relative overflow-hidden" ref={ref}>
+    <section id="achievements" className="py-32 bg-white dark:bg-charcoal relative overflow-hidden transition-colors duration-300" ref={ref}>
       {/* Decorative stripe */}
       <div className="absolute top-0 right-0 w-1/4 h-full bg-coral/5 hidden lg:block" />
 
@@ -48,7 +48,7 @@ export default function Achievements() {
             <span className="text-xs font-semibold tracking-[0.3em] uppercase text-coral">Press</span>
           </div>
           <div className="lg:col-span-8">
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy dark:text-cream leading-[0.9] tracking-tighter">
               Achievements<br />& Certifications
             </h2>
             <div className="w-24 h-1 bg-coral mt-8" />
@@ -61,15 +61,15 @@ export default function Achievements() {
             <div
               key={item.title}
               style={{ transitionDelay: `${i * 0.12}s` }}
-              className={`border-2 border-navy bg-cream p-8 lg:p-10 transition-all duration-500 ${
+              className={`border-2 border-navy dark:border-cream/10 bg-cream dark:bg-navy p-8 lg:p-10 transition-all duration-500 ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              } hover:bg-white hover:shadow-lg`}
+              } hover:bg-white dark:hover:bg-charcoal hover:shadow-lg`}
             >
               <span className="text-3xl block mb-6">{item.icon}</span>
-              <h3 className="font-display text-2xl lg:text-3xl text-navy mb-4">
+              <h3 className="font-display text-2xl lg:text-3xl text-navy dark:text-cream mb-4">
                 {item.title}
               </h3>
-              <p className="text-navy/60 text-sm leading-relaxed">
+              <p className="text-navy/60 dark:text-cream/60 text-sm leading-relaxed">
                 {item.description}
               </p>
             </div>

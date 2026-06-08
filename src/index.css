@@ -9,10 +9,20 @@
   
   body {
     @apply bg-cream text-navy font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body,
+  .dark {
+    @apply bg-navy text-cream;
   }
 
   ::selection {
     @apply bg-coral/20 text-navy;
+  }
+
+  .dark ::selection {
+    @apply bg-coral/40 text-cream;
   }
 }
 
@@ -25,15 +35,32 @@
     @apply font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-navy;
   }
 
+  .dark .section-title {
+    color: #f5f0eb;
+  }
+
   .btn-primary {
     @apply inline-flex items-center gap-2 px-8 py-3.5 bg-navy text-cream font-medium 
            text-sm tracking-wide rounded-none hover:bg-charcoal transition-all duration-300;
+  }
+
+  .dark .btn-primary {
+    @apply bg-coral text-navy hover:bg-coral-dark;
   }
 
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-8 py-3.5 border-2 border-navy text-navy 
            font-medium text-sm tracking-wide rounded-none hover:bg-navy hover:text-cream 
            transition-all duration-300;
+  }
+
+  .dark .btn-secondary {
+    border-color: #f5f0eb;
+    color: #f5f0eb;
+  }
+
+  .dark .btn-secondary:hover {
+    @apply bg-cream text-navy;
   }
 }
 

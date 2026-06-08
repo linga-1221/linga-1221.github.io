@@ -44,7 +44,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-32 relative">
+    <section id="projects" className="py-32 relative bg-cream dark:bg-navy transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Section intro */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
@@ -52,7 +52,7 @@ export default function Projects() {
             <span className="text-xs font-semibold tracking-[0.3em] uppercase text-coral">Work</span>
           </div>
           <div className="lg:col-span-8">
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy dark:text-cream leading-[0.9] tracking-tighter">
               Featured<br />Projects
             </h2>
             <div className="w-24 h-1 bg-coral mt-8" />
@@ -68,7 +68,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative bg-white border-2 border-navy p-8 lg:p-12 hover:-translate-y-1 transition-transform duration-300"
+              className="group relative bg-white dark:bg-charcoal border-2 border-navy dark:border-cream/10 p-8 lg:p-12 hover:-translate-y-1 transition-transform duration-300"
             >
               {/* Project number */}
               <div className="absolute -top-4 -left-4 w-10 h-10 bg-coral flex items-center justify-center">
@@ -81,7 +81,7 @@ export default function Projects() {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <p className="text-xs font-semibold tracking-[0.2em] uppercase text-coral mb-1">{project.subtitle}</p>
-                      <h3 className="font-display text-4xl lg:text-5xl text-navy group-hover:text-coral transition-colors duration-300">
+                      <h3 className="font-display text-4xl lg:text-5xl text-navy dark:text-cream group-hover:text-coral transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
@@ -93,7 +93,7 @@ export default function Projects() {
                     </span>
                   )}
 
-                  <p className="text-navy/60 leading-relaxed text-sm max-w-2xl">
+                  <p className="text-navy/60 dark:text-cream/60 leading-relaxed text-sm max-w-2xl">
                     {project.description}
                   </p>
                 </div>
@@ -102,7 +102,7 @@ export default function Projects() {
                 <div className="lg:col-span-4 flex flex-col justify-between">
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="text-[11px] font-medium text-navy/50 bg-navy/5 px-2.5 py-1.5">
+                      <span key={tag} className="text-[11px] font-medium text-navy/50 dark:text-cream/50 bg-navy/5 dark:bg-cream/5 px-2.5 py-1.5">
                         {tag}
                       </span>
                     ))}
@@ -110,13 +110,13 @@ export default function Projects() {
                   <div className="flex gap-4">
                     {project.links.live && (
                       <a href={project.links.live} target="_blank" rel="noopener noreferrer" 
-                         className="text-xs font-semibold tracking-wider uppercase text-navy border-b-2 border-coral pb-0.5 hover:text-coral transition-colors">
+                         className="text-xs font-semibold tracking-wider uppercase text-navy dark:text-cream border-b-2 border-coral pb-0.5 hover:text-coral transition-colors">
                         Live Demo ↗
                       </a>
                     )}
                     {project.links.github && (
                       <a href={project.links.github} target="_blank" rel="noopener noreferrer"
-                         className="text-xs font-semibold tracking-wider uppercase text-navy/40 hover:text-navy transition-colors">
+                         className="text-xs font-semibold tracking-wider uppercase text-navy/40 dark:text-cream/40 hover:text-navy dark:hover:text-cream transition-colors">
                         GitHub ↗
                       </a>
                     )}
@@ -128,7 +128,7 @@ export default function Projects() {
         </div>
 
         {/* Bottom decorative line */}
-        <div className="mt-16 h-px bg-navy/10 w-full" />
+        <div className="mt-16 h-px bg-navy/10 dark:bg-cream/10 w-full" />
       </div>
     </section>
   )

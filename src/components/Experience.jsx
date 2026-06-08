@@ -36,7 +36,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 lg:py-32 bg-white relative">
+    <section id="experience" className="py-24 lg:py-32 bg-white dark:bg-charcoal relative transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16 lg:mb-20">
@@ -50,7 +50,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-0 md:left-6 top-0 bottom-0 w-px bg-navy/10" />
+          <div className="absolute left-0 md:left-6 top-0 bottom-0 w-px bg-navy/10 dark:bg-cream/10" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -63,22 +63,22 @@ export default function Experience() {
                 className="relative pl-8 md:pl-16"
               >
                 {/* Dot */}
-                <div className="absolute left-[-5px] md:left-[19px] top-1.5 w-3 h-3 rounded-full bg-coral border-2 border-white shadow-soft" />
+                <div className="absolute left-[-5px] md:left-[19px] top-1.5 w-3 h-3 rounded-full bg-coral border-2 border-white dark:border-charcoal shadow-soft" />
 
                 {/* Content */}
-                <div className="bg-cream/50 rounded-sm p-6 lg:p-8 border border-navy/10 hover:shadow-card transition-all duration-300">
+                <div className="bg-cream/50 dark:bg-navy/50 rounded-sm p-6 lg:p-8 border border-navy/10 dark:border-cream/10 hover:shadow-card transition-all duration-300">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 mb-4">
                     <div>
-                      <h3 className="font-display text-2xl lg:text-3xl text-navy">{exp.role}</h3>
+                      <h3 className="font-display text-2xl lg:text-3xl text-navy dark:text-cream">{exp.role}</h3>
                       <p className="text-coral font-medium text-sm mt-1">{exp.company}</p>
                     </div>
-                    <span className="text-xs font-medium text-navy/40 tracking-wide whitespace-nowrap">
+                    <span className="text-xs font-medium text-navy/40 dark:text-cream/40 tracking-wide whitespace-nowrap">
                       {exp.period}
                     </span>
                   </div>
                   <ul className="space-y-2">
                     {exp.highlights.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-navy/60 text-sm leading-relaxed">
+                      <li key={i} className="flex items-start gap-3 text-navy/60 dark:text-cream/60 text-sm leading-relaxed">
                         <span className="mt-2 w-1 h-1 rounded-full bg-coral flex-shrink-0" />
                         {item}
                       </li>
