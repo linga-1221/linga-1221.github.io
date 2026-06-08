@@ -6,7 +6,6 @@ import Hero from './components/Hero'
 const Projects = lazy(() => import('./components/Projects'))
 const Skills = lazy(() => import('./components/Skills'))
 const Achievements = lazy(() => import('./components/Achievements'))
-const Experience = lazy(() => import('./components/Experience'))
 const Contact = lazy(() => import('./components/Contact'))
 const Footer = lazy(() => import('./components/Footer'))
 
@@ -23,7 +22,6 @@ export default function App() {
         <Suspense fallback={<SectionFallback />}><Projects /></Suspense>
         <Suspense fallback={<SectionFallback />}><Skills /></Suspense>
         <Suspense fallback={<SectionFallback />}><Achievements /></Suspense>
-        <Suspense fallback={<SectionFallback />}><Experience /></Suspense>
         <Suspense fallback={<SectionFallback />}><Contact /></Suspense>
         <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
       </div>
