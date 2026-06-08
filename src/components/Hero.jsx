@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center relative pt-20 overflow-hidden bg-cream dark:bg-navy transition-colors duration-300">
+    <section className="min-h-[85vh] lg:min-h-screen flex items-center relative pt-20 overflow-hidden bg-cream dark:bg-navy transition-colors duration-300">
 
       {/* Giant NK Watermark */}
       <div className="absolute -left-20 top-1/2 -translate-y-1/2 text-[35vw] font-display text-navy/[0.03] dark:text-cream/[0.03] leading-none select-none pointer-events-none -rotate-12">
@@ -11,8 +11,8 @@ export default function Hero() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-40 h-40 bg-coral/10" />
-      <div className="absolute top-0 right-0 w-20 h-20 bg-coral" />
+      <div className="absolute top-0 right-0 w-40 h-40 bg-coral/10 hidden md:block" />
+<div className="absolute top-0 right-0 w-20 h-20 bg-coral hidden md:block" />
       <div className="absolute bottom-20 right-10 w-8 h-8 border-2 border-coral rotate-45 hidden lg:block" />
       <div className="absolute top-32 left-8 w-4 h-4 bg-coral rotate-45 hidden lg:block" />
 
@@ -24,7 +24,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-4 mb-10"
+            className="flex flex-col sm:flex-row sm:items-center gap-3 mb-8"
           >
             <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-coral">
               AI Engineer · Full Stack Developer
@@ -47,11 +47,11 @@ export default function Hero() {
             }}
             className="relative"
           >
-            <span className="block font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-[0.82] text-navy dark:text-cream tracking-tighter">
+            <span className="block font-display text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-[0.82] text-navy dark:text-cream tracking-tighter">
               Nagalinga
             </span>
 
-            <span className="block font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-[0.82] text-coral italic mt-2 tracking-tighter">
+            <span className="block font-display text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[11rem] leading-[0.82] text-coral italic mt-2 tracking-tighter">
               Kuchivaripalli
             </span>
           </motion.h1>
@@ -86,7 +86,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-10 flex flex-wrap gap-4 lg:ml-4"
+            className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4 lg:ml-4"
           >
             <a
               href="#projects"
