@@ -63,9 +63,9 @@ export default function Navbar() {
             <button onClick={toggle} className="p-2 text-navy dark:text-cream hover:text-coral transition-colors" aria-label="Toggle dark mode">
               {dark ? <SunIcon /> : <MoonIcon />}
             </button>
-            <a href="#contact"
+            <a href="https://drive.google.com/uc?export=download&id=14cXr4hdYOsF0L9yY2yWgVCwCai_BYWCJ" target="_blank" rel="noopener noreferrer"
                className="text-sm font-medium text-coral border-2 border-coral px-5 py-2.5 hover:bg-coral hover:text-cream transition-all duration-300">
-              Contact ↗
+              Resume ↗
             </a>
           </div>
 
@@ -100,6 +100,10 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a href="https://drive.google.com/uc?export=download&id=14cXr4hdYOsF0L9yY2yWgVCwCai_BYWCJ" target="_blank" rel="noopener noreferrer"
+               className="mt-8 text-sm font-semibold tracking-wider uppercase text-coral border-2 border-coral px-8 py-4 hover:bg-coral hover:text-cream transition-all">
+              Download Resume ↗
+            </a>
           </nav>
         </div>
       )}

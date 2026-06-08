@@ -1,27 +1,56 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const achievements = [
-  {
-    icon: '🏆',
-    title: '1st Place — KARE OSS Hackathon',
-    description: 'Won among 200+ competing teams. Built an open-source AI solution under time constraints.',
-  },
-  {
-    icon: '📄',
-    title: 'Springer Nature Research Publication',
-    description: 'Published research on AI-powered career recommendation systems via Springer Nature (SmartCom 2026), linked to the Skill Ladder project.',
-  },
-  {
-    icon: '🎓',
-    title: 'AI for Data Analytics — Infosys Springboard',
-    description: 'Certified in Artificial Intelligence and Data Analytics methodologies by Infosys Springboard.',
-  },
-  {
-    icon: '📊',
-    title: 'Power BI Certification',
-    description: 'Certified in Microsoft Power BI for data visualisation, business intelligence, and reporting dashboards.',
-  },
+{
+icon: '🏆',
+title: '1st Place — KARE OSS Hackathon',
+description:
+'Secured 1st place among 200+ competing teams by building an innovative AI-powered solution under strict time constraints and presenting it to industry mentors.',
+},
+
+{
+icon: '📄',
+title: 'Springer Nature Research Publication',
+description:
+'Published research on an AI-powered Career Recommendation System at SmartCom 2026 through Springer Nature, demonstrating expertise in AI, recommendation systems, and real-world applications.',
+},
+
+{
+icon: '🤖',
+title: 'Generative AI & LLM Development',
+description:
+'Built multiple AI products including Skill Ladder, FairHire AI, and Agent Eval Lab using LLMs, prompt engineering, AI evaluation frameworks, and modern agent architectures.',
+},
+
+{
+icon: '🥇',
+title: 'Oracle Certified Foundations Associate',
+description:
+'Earned Oracle certification demonstrating foundational knowledge in cloud technologies, databases, and modern software development practices.',
+},
+
+{
+icon: '☕',
+title: 'Learn Java — CodeChef',
+description:
+'Completed CodeChef Learn Java certification covering object-oriented programming, collections, exception handling, problem-solving, and software development using Java.',
+},
+
+{
+icon: '🐍',
+title: 'Python Developer Roadmap',
+description:
+'Successfully completed the OneRoadmap Python learning path, strengthening skills in Python programming, data structures, algorithms, backend development, and software engineering fundamentals.',
+},
+
+{
+icon: '🎓',
+title: 'AI for Data Analytics & Power BI — Infosys Springboard',
+description:
+'Certified in Artificial Intelligence and Data Analytics, covering machine learning fundamentals, predictive analytics, and data-driven decision making.',
+},
 ]
+
 
 export default function Achievements() {
   const [visible, setVisible] = useState(false)
@@ -63,7 +92,7 @@ export default function Achievements() {
               style={{ transitionDelay: `${i * 0.12}s` }}
               className={`border-2 border-navy dark:border-cream/10 bg-cream dark:bg-navy p-8 lg:p-10 transition-all duration-500 ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              } hover:bg-white dark:hover:bg-charcoal hover:shadow-lg`}
+              } hover:bg-white dark:hover:bg-charcoal hover:shadow-2xl hover:-translate-y-2`}
             >
               <span className="text-3xl block mb-6">{item.icon}</span>
               <h3 className="font-display text-2xl lg:text-3xl text-navy dark:text-cream mb-4">
