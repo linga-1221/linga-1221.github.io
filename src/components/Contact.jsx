@@ -77,11 +77,7 @@ export default function Contact() {
     alert('Failed to send message')
   }
 }
-{sent && (
-  <p className="text-green-500 text-sm">
-    Thanks for reaching out! Your message has been sent successfully.
-  </p>
-)}
+
 
   return (
     <section id="contact" className="py-32 relative overflow-hidden bg-cream dark:bg-navy transition-colors duration-300" ref={ref}>
@@ -142,6 +138,19 @@ export default function Contact() {
                 className="w-full bg-coral text-cream px-6 py-3.5 text-sm font-semibold tracking-wider uppercase hover:bg-coral-dark transition-all duration-300">
                 {sent ? '✓ Message Sent!' : 'Send Message →'}
               </button>
+
+              <button
+  type="submit"
+  className="w-full bg-coral text-cream px-6 py-3.5 text-sm font-semibold tracking-wider uppercase hover:bg-coral-dark transition-all duration-300"
+>
+  {sent ? '✓ Message Sent!' : 'Send Message →'}
+</button>
+
+{sent && (
+  <p className="text-green-500 text-sm text-center">
+    Thanks for reaching out! Your message has been sent successfully.
+  </p>
+)}
             </form>
           </div>
 
@@ -154,12 +163,19 @@ export default function Contact() {
                   <div>
                     <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-coral mb-1">{link.label}</p>
                     {link.href ? (
-                      <a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}
-                         rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                         className="text-sm font-medium text-cream hover:text-coral transition-colors">{link.value}</a>
-                    ) : (
-                      <p className="text-sm font-medium text-cream">{link.value}</p>
-                    )}
+  <a
+    href={link.href}
+    target={link.href.startsWith('http') ? '_blank' : undefined}
+    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+    className="text-sm font-medium text-navy dark:text-cream hover:text-coral transition-colors"
+  >
+    {link.value}
+  </a>
+) : (
+  <p className="text-sm font-medium text-navy dark:text-cream">
+    {link.value}
+  </p>
+)}
                   </div>
                   {link.href && (
                     <svg className="w-4 h-4 text-coral flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
